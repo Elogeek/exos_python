@@ -5,6 +5,7 @@ class Player:
         self.pseudo = pseudo
         self.health = health
         self.attack = attack
+        self.weapon = None
         print("Bienvenue au joueur", pseudo, "/ Points de vie:", health, "/ Attaque:", attack)
 
     def get_pseudo(self):
