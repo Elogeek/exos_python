@@ -16,9 +16,35 @@ class Player:
 
     def get_attack_value(self):
         return self.attack
+
     def damage(self, damage):
         self.health -= damage
-        #print("Aiiie...vous venez de subir", damage, "dégats!")
+
+        if self.health == 0:
+            print("Nooonnn vous avez subi trop de dégâts", damage, "!", self.pseudo, "est mort!!!")
+        else:
+            print("Aiiie...vous venez de subir", damage, "dégats!")
+
     # Attack another player
     def attack_player(self, target_player):
-        target_player.damage(self.attack)
+        damage = self.attack
+
+        # si le joueur a une arme
+        if self.has_weapon():
+            # ajoute les dégats de l'arme au point d'attaque du joueur
+            damage += self.weapon.get_damage_amount()
+
+        target_player.damage(damage)
+
+    # méthode pour changer l'arme du joueur
+    def set_weapon(self, weapon):
+        self.weapon = weapon
+
+        if weapon == "None":
+            print(self.pseudo, "n'a plus d'arme équipée !")
+        else:
+            print(self.pseudo, "est maintenant équipé d'un :", weapon.get_name())
+
+    # méthode pour verifier si le joueur a une arme
+    def has_weapon(self):
+        return self.weapon is not None
