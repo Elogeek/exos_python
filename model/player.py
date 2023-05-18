@@ -19,11 +19,7 @@ class Player:
 
     def damage(self, damage):
         self.health -= damage
-
-        if self.health == 0:
-            print("Nooonnn vous avez subi trop de dégâts", damage, "!", self.pseudo, "est mort!!!")
-        else:
-            print("Aiiie...vous venez de subir", damage, "dégats!")
+        print("Nooonnn", self.pseudo, "vous venez de subir", damage, "de dégâts!")
 
     # Attack another player
     def attack_player(self, target_player):
@@ -48,3 +44,32 @@ class Player:
     # méthode pour verifier si le joueur a une arme
     def has_weapon(self):
         return self.weapon is not None
+
+
+class Shinobi(Player):
+    def __init__(self, pseudo, health, attack):
+        super().__init__(pseudo, health, attack)
+        self.armor = 3
+        print("Bienvenue au ninja", pseudo, "/ Points de vie:", health, "/ Attaque:", attack)
+
+    def damage(self, damage):
+        if self.armor > 0:
+            self.armor -= 1
+            damage = 0
+            super().damage(damage)
+
+    def blade(self):
+        self.armor = 3
+        print("Les points d'armure ont été rechargées")
+
+    def get_armor_point(self):
+        return self.armor
+
+
+ninja = Shinobi("Naruto", 30, 8)
+ninja.damage(4)
+print("PV:", ninja.get_health(), "armure:", ninja.get_armor_point())
+
+# test que l'héritage se passe bien
+if issubclass(Shinobi, Player):
+    print("Le ninja est bien une spécialisation de Player")
