@@ -1,35 +1,52 @@
-from model.player import Player
-from model.weapon import Weapon
+# exo 1 : déterminer les diviseur d'un entier en python
+n = int(input("Tapez la valeur de l'entier n "))
+# parcourir tous les entiers inféreir ou égale à n
+for i in range(1, n+1):
+    # tester si i est un diviseur de n
+    if (n % i == 0):
+        print("Le nombre",i," est un diviseur de ",n)
 
-# Weapons
-knife = Weapon("couteau suisse", 3)
-katana = Weapon("Katana", 10)
+# exo 2 : les tables de multiplication
 
-# Players
-player1 = Player("Cookies", 50, 3)
-player2 = Player("Otaku45", 6, 10)
+# Table de multiplication d'un entier saisi au clavier
+# Lire la valeur de l'entier n
+n = int(input("Tapez la valeur de n "))
+print("La table de multiplication de", n, "est")
+for i in range(1,10):
+    print(i, "x", n, "=", i*n)
 
-# Equipped players
-player2.set_weapon(katana)
-player1.set_weapon(knife)
+#Table de multiplication de 1 -> 10
+for n in range(1,11):
+    #insert separator
+    print("*********")
+    print("la table de multiplication de", n, "est")
+    for i in range(1, 11):
+        print(i, "x", n, "=", i*n)
 
-# Attack player2
-print(player2.get_pseudo(), "attaque", player1.get_pseudo())
-player2.attack_player(player1)
-print(player1.get_pseudo(),"il vous reste maintenant", player1.get_health(),"PV")
+# exo 3 :  le quotient et le reste de la division euclidienne de a par b
+# Demander à l'utilisateur de saisir les deux nombres entiers
+a = int(input("Entrez le premier nombre entier:"))
+b = int(input("Entrez le deuxième nombre entier:"))
 
-# Attack player1
-print(player1.get_pseudo(), "attaque", player2.get_pseudo())
-player1.attack_player(player2)
-print(player2.get_pseudo(), "est maintenant à", player2.get_health(), "PV")
+# Calculer le quotient et le reste de la division euclidienne
+quotient = a // b
+reste = a % b
 
-#print("Bienvenue au joueur", player1.get_pseudo(), "PV:", player1.get_health(), "/ Attaque:", player1.get_attack_value(), "/ Equipement:", player1.weapon.get_name())
-#print("Bienvenue au joueur", player2.get_pseudo(), "PV:", player2.get_health(), "/ Attaque:", player2.get_attack_value(), "/ Equipement:", player2.weapon.get_name())
+# Afficher le résultat
+print("Le quotient de la division euclidienne de", a, "par", b, "est:", quotient)
+print("Le reste de la division euclidienne de", a, "par", b, "est:", reste)
 
-# Victory
-if player2.get_health() > 0:
-    print("{} aie ... Il ne vous reste plus que {} points de vie"
-          .format(player2.get_pseudo(), player2.get_health()))
+# exo 4 : tester si un nombre est premier
+# Lire la valeur de l'entier n
+n = int(input("Tapez la valeur de n :  "))
+# on utilise un compteur qui compte le nombre de diviseurs de n
+compteur = 0
+for i in range(1, n + 1):
+    if (n % i == 0):
+        compteur = compteur + 1
+
+# On teste si le nombre de diviseurs de n est = 2 pour conclure que n est premier
+if (compteur == 2):
+    print("Le nombre ", n, "est premier")
 else:
-    print("{} est mort ... {} a gagné".format(
-        player2.get_pseudo(), player1.get_pseudo()))
+    print("Le nombre", n, "n'est pas premier")
