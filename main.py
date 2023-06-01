@@ -80,3 +80,27 @@ for i, c in enumerate(text):
 # Afficher un message si 'a' n'a pas été trouvé
 if not has_a:
     print("La chaine ne contient pas la lettre 'a'.")
+
+# exo 7: affiche le 1 mot du texte
+
+#method 1
+my_text = 'Python est un merveilleux langage de programmation'
+# On divise le texte en mots en utilisant l'espace comme séparateur
+mots = my_text.split()
+premier_mot = mots[0]
+print(premier_mot)
+
+# method 2
+my_text = 'Python est un merveilleux langage de programmation, mais je préfere PHP'
+# initialise une variable pour stocker le premier mot
+premier_mot = ''
+
+for caractere in my_text:
+    # Si on rencontre un espace, on a fini de lire le premier mot
+    if caractere == ' ':
+        break
+    # Sinon, on ajoute le caractère au premier mot
+    premier_mot += caractere
+
+# On affiche le résultat
+print(premier_mot)
