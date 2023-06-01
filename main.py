@@ -1,69 +1,65 @@
-# exo 1 : déterminer les diviseur d'un entier en python
+# Exercice 1: find divisor of an integer in python
 n = int(input("Tapez la valeur de l'entier n "))
-# parcourir tous les entiers inféreir ou égale à n
+# Iterate through all integers less than or equal to n
 for i in range(1, n+1):
-    # tester si i est un diviseur de n
+    # Test if i is a divisor of n
     if (n % i == 0):
         print("Le nombre",i," est un diviseur de ",n)
 
-# exo 2 : les tables de multiplication
+# Exercice 2: multiplication tables
 
-# Table de multiplication d'un entier saisi au clavier
-# Lire la valeur de l'entier n
+# Multiplication table of an integer entered on the keyboard
 n = int(input("Tapez la valeur de n "))
 print("La table de multiplication de", n, "est")
 for i in range(1,10):
     print(i, "x", n, "=", i*n)
 
-#Table de multiplication de 1 -> 10
+# Multiplication table of 1 -> 10
 for n in range(1,11):
-    #insert separator
+    # Separator insert
     print("*********")
     print("la table de multiplication de", n, "est")
     for i in range(1, 11):
         print(i, "x", n, "=", i*n)
 
-# exo 3 :  le quotient et le reste de la division euclidienne de a par b
-# Demander à l'utilisateur de saisir les deux nombres entiers
+# Exercice 3: the quotient and the remainder of the Euclidean division of a by b
 a = int(input("Entrez le premier nombre entier:"))
 b = int(input("Entrez le deuxième nombre entier:"))
 
-# Calculer le quotient et le reste de la division euclidienne
+# Calculate the quotient and remainder of Euclidean division
 quotient = a // b
 reste = a % b
 
-# Afficher le résultat
+# Show result
 print("Le quotient de la division euclidienne de", a, "par", b, "est:", quotient)
 print("Le reste de la division euclidienne de", a, "par", b, "est:", reste)
 
-# exo 4 : tester si un nombre est premier
-# Lire la valeur de l'entier n
+# Exercice 4: test if a number is prime
 n = int(input("Tapez la valeur de n :  "))
-# on utilise un compteur qui compte le nombre de diviseurs de n
+# Trick: use a counter that counts the number of divisors of n
 compteur = 0
 for i in range(1, n + 1):
     if (n % i == 0):
         compteur = compteur + 1
 
-# On teste si le nombre de diviseurs de n est = 2 pour conclure que n est premier
+# Tests if the number of divisors of n is = 2 to conclude that n is prime
 if (compteur == 2):
     print("Le nombre ", n, "est premier")
 else:
     print("Le nombre", n, "n'est pas premier")
 
-# exo 5: parcourir une chaine
+# Exercice 5: browse a string
 string = "Python is great"
-# Parcoure les caractères de la chaîne
 for i in string:
     print(i)
 
-#exo 6: index de caractère au sein d'une chaine
+# Exercice 6: character index within a string
 # method 1
 text = input("Entrez une phrase,svp : ")
 letter_a = len(text)
 
 for i in range(0,letter_a):
-    # check si la lettre a est dans le texte
+    # Check if the letter a is in the text
     if(text[i] == 'a'):
         print("La lettre 'a' se trouve à la position:", i , "dans cette chaine")
 
@@ -72,50 +68,68 @@ text = input("Entrez une chaine de caractères : ")
 has_a = False
 
 for i, c in enumerate(text):
-    # Vérifier si 'a' est là
+    # Check if the letter a is in the text
     if c == 'a':
         print(f"La lettre 'a' se trouve à la position : {i}")
         has_a = True
 
-# Afficher un message si 'a' n'a pas été trouvé
+# Exercice 7 : displays words beginning with "a"
+text = input("Entrez votre texte : ")
+# Splits text into a list of words
+words = text.split()
+# Go through each word and check if it starts with "a"
+words_start_a = []
+for mot in words:
+    if mot.startswith("a") or mot.startswith("A"):
+       words_start_a.append(mot)
+
+# Displays words starting with "a"
+if len(words_start_a) > 0:
+    print("Les mots commençant par 'a' sont :", words_start_a)
+else:
+    print("Il n'y a pas de mots commençant par 'a' dans votre texte.")
+# Display a message if 'a' was not found
 if not has_a:
     print("La chaine ne contient pas la lettre 'a'.")
 
-# exo 7: affiche le 1 mot du texte
-
+# Exercise 8: Displays the first word of the text
 #method 1
 my_text = 'Python est un merveilleux langage de programmation'
-# On divise le texte en mots en utilisant l'espace comme séparateur
+# split text into words using space as a separator
 mots = my_text.split()
 premier_mot = mots[0]
 print(premier_mot)
 
 # method 2
 my_text = 'Python est un merveilleux langage de programmation, mais je préfere PHP'
-# initialise une variable pour stocker le premier mot
+# Initialize a variable to store the first word
 premier_mot = ''
 
 for caractere in my_text:
-    # Si on rencontre un espace, on a fini de lire le premier mot
+    # If we encounter a space, we have finished reading the first word
     if caractere == ' ':
         break
-    # Sinon, on ajoute le caractère au premier mot
+    # Otherwise, we add the character to the first word
     premier_mot += caractere
 
-# On affiche le résultat
+# show the result
 print(premier_mot)
 
-# exo 8: supprimer les éléments duppliquées de la liste
+# Exercice 9: remove duplicate items from the list
 liste = [2, 7, 5, 2, 17, 13, 2, 7, 13]
-# définit une fonction qui supprime les doublons dans la liste
+
+# a function that removes duplicates from the list
 def removeDuplicate(liste):
-    # définir et initialiser la liste sans élément dupliqué
+    # define and initialize list without duplicate element
     unique = []
-    # construction de la liste sans éléments dupliqués
+    # construction of the list without duplicate elements
     for x in liste:
         if x not in unique:
             unique.append(x)
     return unique
 
 print(removeDuplicate(liste))
+
+
+
 
