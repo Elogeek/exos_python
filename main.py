@@ -50,3 +50,18 @@ if (compteur == 2):
     print("Le nombre ", n, "est premier")
 else:
     print("Le nombre", n, "n'est pas premier")
+
+# exo 5: parcourir une chaine
+string = "Python is great"
+# Parcoure les caractères de la chaîne
+for i in string:
+    print(i)
+
+#exo 6: index de caractère au sein d'une chaine
+text = input("Entrez une phrase,svp.")
+letter_a = len(text)
+
+for i in range(0,letter_a):
+    # check si la lettre a est dans le texte
+    if(text[i] == 'a'):
+        print("La lettre 'a' se trouve à la position:", i , "dans cette chaine")
