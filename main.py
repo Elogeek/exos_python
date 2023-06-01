@@ -104,3 +104,18 @@ for caractere in my_text:
 
 # On affiche le résultat
 print(premier_mot)
+
+# exo 8: supprimer les éléments duppliquées de la liste
+liste = [2, 7, 5, 2, 17, 13, 2, 7, 13]
+# définit une fonction qui supprime les doublons dans la liste
+def removeDuplicate(liste):
+    # définir et initialiser la liste sans élément dupliqué
+    unique = []
+    # construction de la liste sans éléments dupliqués
+    for x in liste:
+        if x not in unique:
+            unique.append(x)
+    return unique
+
+print(removeDuplicate(liste))
+
