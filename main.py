@@ -58,10 +58,25 @@ for i in string:
     print(i)
 
 #exo 6: index de caractère au sein d'une chaine
-text = input("Entrez une phrase,svp.")
+# method 1
+text = input("Entrez une phrase,svp : ")
 letter_a = len(text)
 
 for i in range(0,letter_a):
     # check si la lettre a est dans le texte
     if(text[i] == 'a'):
         print("La lettre 'a' se trouve à la position:", i , "dans cette chaine")
+
+# method 2
+text = input("Entrez une chaine de caractères : ")
+has_a = False
+
+for i, c in enumerate(text):
+    # Vérifier si 'a' est là
+    if c == 'a':
+        print(f"La lettre 'a' se trouve à la position : {i}")
+        has_a = True
+
+# Afficher un message si 'a' n'a pas été trouvé
+if not has_a:
+    print("La chaine ne contient pas la lettre 'a'.")
